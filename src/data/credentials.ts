@@ -1,0 +1,62 @@
+export const credentials = {
+  identity: {
+    fullName: 'Major General Professor Dr. Liza Chowdhury (Retd.)',
+    currentTitles: [
+      'Chairman & Chief Consultant, Uttara Fertility Centre Limited',
+      'Professor of Obstetrics & Gynaecology, Ibn Sina Medical College',
+      'Consultant, Hitech Multicare Hospital',
+    ],
+    formerTitles: [
+      'Major General, Bangladesh Army Medical Corps',
+      'Founder Head, Department of Obstetrics & Gynaecology, Armed Forces Medical College, Dhaka (~13 years)',
+      'Founder Head, Department of Reproductive Endocrinology and Infertility, CMH Dhaka',
+      'Advisor Specialist, Obstetrics & Gynaecology, CMH Dhaka',
+    ],
+    bmdcReg: '[pending verification]',
+  },
+  education: [
+    { qualification: 'MBBS', institution: 'Mymensingh Medical College' },
+    { qualification: 'DGO', institution: 'National Post-Graduate Medical Board' },
+    { qualification: 'MCPS (OBGYN)', institution: 'College of Physicians and Surgeons, Bangladesh' },
+    { qualification: 'FCPS (OBGYN)', institution: 'College of Physicians and Surgeons, Pakistan' },
+    { qualification: 'Post-Graduate Grading Course', institution: 'AFMI' },
+    { qualification: 'Fellowship in Gynaecological Endoscopy', institution: 'India' },
+    { qualification: 'Fellowship & Diploma in Infertility and Reproductive Medicine', institution: 'India and Germany' },
+  ],
+  pioneeringWork: {
+    title: 'First Government-Set-Up Fertility Centre in Bangladesh',
+    where: 'Combined Military Hospital (CMH) Dhaka',
+    documentedIn:
+      'JAFMC 2020 — "Outcome of In-Vitro Fertilization in the First Government Set-up Fertility Center of Bangladesh"',
+  },
+  memberships: [
+    { abbr: 'OGSB', full: 'Obstetrical and Gynaecological Society of Bangladesh' },
+    { abbr: 'BCPS', full: 'Bangladesh College of Physicians and Surgeons' },
+    { abbr: 'SLSB', full: 'Society of Laparoscopic Surgeons of Bangladesh' },
+    { abbr: 'BMS', full: 'Bangladesh Medical Society' },
+    { abbr: 'IAGE', full: 'Indian Association of Gynaecological Endoscopists' },
+    { abbr: 'IFS', full: 'Indian Fertility Society' },
+    { abbr: 'ESHRE', full: 'European Society of Human Reproduction and Embryology' },
+  ],
+  examinerRoles: [
+    { institution: 'Dhaka University', examinations: ['MBBS', 'DGO', 'MCPS', 'FCPS'] },
+    { institution: 'Bangladesh University of Professionals (BUP)', examinations: ['MBBS'] },
+    { institution: 'BCPS', examinations: ['MCPS', 'FCPS'] },
+  ],
+  reviewer: 'Cambridge University Press — clinical texts on hysteroscopy, laparoscopy, and assisted reproduction',
+  publicationCount: 36,
+  timeline: [
+    { year: '~1985', event: 'MBBS, Mymensingh Medical College' },
+    { year: '~1987', event: 'Joined Bangladesh Army Medical Corps' },
+    { year: '~1992', event: 'DGO completion' },
+    { year: '~1995', event: 'MCPS and FCPS in Obs & Gynae' },
+    { year: '~2000', event: 'Fellowship in Gynaecological Endoscopy — India' },
+    { year: '~2003', event: 'Fellowship & Diploma — Infertility and Reproductive Medicine, India and Germany' },
+    { year: '~2007', event: 'Founder Head, Dept. of Obs & Gynae, AFMC' },
+    { year: '~2014', event: 'Founded the CMH Fertility Centre — first government IVF programme in Bangladesh' },
+    { year: '~2018', event: 'Promoted to Brigadier General' },
+    { year: '~2020', event: 'JAFMC paper documenting CMH outcomes published' },
+    { year: '~2021', event: 'Promoted to Major General' },
+    { year: '~2023', event: 'Retirement; transition to private practice. Founding of Uttara Fertility Centre Ltd.' },
+  ],
+};

@@ -1,0 +1,181 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/inter-tight';
+@import '@fontsource/hind-siliguri/400.css';
+@import '@fontsource/hind-siliguri/500.css';
+@import '@fontsource/hind-siliguri/600.css';
+@import '@fontsource/hind-siliguri/700.css';
+@import '@fontsource/dm-serif-display/400.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --easing-primary: cubic-bezier(0.22, 1, 0.36, 1);
+    --easing-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html {
+    font-family: 'Inter Variable', Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  html[lang='bn'] {
+    font-family: 'Hind Siliguri', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-bg-warm text-ink-body antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  body[data-lang='bn'] {
+    line-height: 1.85;
+  }
+
+  ::selection {
+    background: #6B2D8C;
+    color: #FAF7F5;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #6B2D8C;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  /* Lenis */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply absolute left-2 top-2 z-[100] -translate-y-20 rounded-md bg-brand-purple px-4 py-2 text-bg-warm focus:translate-y-0 transition-transform;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-12;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-brand-purple px-5 py-3 font-medium text-bg-warm shadow-sm transition-colors duration-200 ease-out-quint hover:bg-brand-purpleDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 focus-visible:ring-offset-bg-warm;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-lg border border-brand-purple bg-transparent px-5 py-3 font-medium text-brand-purple transition-colors duration-200 ease-out-quint hover:bg-brand-purpleSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 focus-visible:ring-offset-bg-warm;
+  }
+
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium transition-all duration-200 ease-out-quint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2;
+  }
+
+  .card-base {
+    @apply rounded-xl border border-line bg-bg-card shadow-card transition-all duration-350 ease-out-quint hover:-translate-y-1 hover:shadow-cardHover;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted;
+  }
+
+  .display-xl {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .display-l {
+    font-size: clamp(2rem, 3vw + 1rem, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .h1 {
+    font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  .h2 {
+    font-size: clamp(1.5rem, 1.4vw + 0.875rem, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  .h3 {
+    font-size: clamp(1.125rem, 0.6vw + 1rem, 1.375rem);
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .body-large {
+    font-size: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
+    line-height: 1.65;
+  }
+
+  .body {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .body-bn {
+    line-height: 1.85;
+  }
+
+  .body-muted {
+    @apply text-ink-muted;
+  }
+
+  .pullquote {
+    @apply font-serif text-3xl md:text-4xl leading-snug text-ink-body;
+    hanging-punctuation: first;
+  }
+
+  .underline-sweep {
+    position: relative;
+  }
+  .underline-sweep::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms var(--easing-primary);
+  }
+  .underline-sweep:hover::after,
+  .underline-sweep[aria-current='page']::after {
+    transform: scaleX(1);
+  }
+}
