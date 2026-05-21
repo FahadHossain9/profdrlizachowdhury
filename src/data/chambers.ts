@@ -50,7 +50,7 @@ export const chambers: Chamber[] = [
     geo: { lat: 23.8744, lng: 90.3978 },
     titleHeldHere: 'Chairman & Chief Consultant',
     isPrimary: true,
-    mapPosition: { x: 62, y: 22 },
+    mapPosition: { x: 60, y: 18 },
   },
   {
     slug: 'hitech',
@@ -99,7 +99,7 @@ export const chambers: Chamber[] = [
     geo: { lat: 23.875, lng: 90.39 },
     titleHeldHere: 'Professor (Ex-AFMC CMH Dhaka)',
     isPrimary: false,
-    mapPosition: { x: 58, y: 26 },
+    mapPosition: { x: 72, y: 24 },
   },
   {
     slug: 'ibn-sina-kallyanpur',
@@ -139,7 +139,7 @@ export const chambers: Chamber[] = [
     geo: { lat: 23.8718, lng: 90.3936 },
     titleHeldHere: 'Consultant',
     isPrimary: false,
-    mapPosition: { x: 60, y: 28 },
+    mapPosition: { x: 48, y: 28 },
   },
 ];
 

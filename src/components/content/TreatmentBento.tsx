@@ -18,9 +18,9 @@ const iconMap = {
 } as const;
 
 const bentoSpan: Record<Treatment['bentoSize'], string> = {
-  tall: 'md:row-span-2',
-  wide: 'md:col-span-2',
-  short: '',
+  tall: 'md:row-span-2 md:min-h-[320px]',
+  wide: 'md:col-span-2 md:min-h-[170px]',
+  short: 'md:min-h-[170px]',
 };
 
 export function TreatmentBento() {
@@ -32,7 +32,7 @@ export function TreatmentBento() {
           <div className="mb-12 flex flex-col items-start gap-3 md:flex-row md:items-end md:justify-between">
             <div className="space-y-3 max-w-2xl">
               <p className={cn('eyebrow', lang === 'bn' && 'font-bangla')}>{t.whatITreat.eyebrow}</p>
-              <h2 className={cn('display-l', lang === 'bn' && 'font-bangla')}>{t.whatITreat.title}</h2>
+              <h2 className={cn('display-serif-l', lang === 'bn' && 'font-bangla')}>{t.whatITreat.title}</h2>
               <p className={cn('body-muted body-large', lang === 'bn' && 'font-bangla body-bn')}>{t.whatITreat.body}</p>
             </div>
             <Link to="/treatments" className={cn('inline-flex items-center gap-1 text-brand-purple font-semibold underline-sweep', lang === 'bn' && 'font-bangla')}>
@@ -43,7 +43,7 @@ export function TreatmentBento() {
         </Reveal>
 
         <Stagger
-          className="grid grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-[minmax(160px,_auto)] md:grid-flow-dense"
+          className="grid grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-[170px] md:grid-flow-dense"
           staggerChildren={0.05}
         >
           {treatments.map((tr) => {

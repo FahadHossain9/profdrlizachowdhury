@@ -20,7 +20,7 @@ export function LearningPreview() {
           <div className="mb-10 flex flex-col items-start gap-3 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className={cn('eyebrow mb-3', lang === 'bn' && 'font-bangla')}>{t.learning.eyebrow}</p>
-              <h2 className={cn('display-l', lang === 'bn' && 'font-bangla')}>{t.learning.title}</h2>
+              <h2 className={cn('display-serif-l', lang === 'bn' && 'font-bangla')}>{t.learning.title}</h2>
             </div>
             <Link to="/learning" className={cn('inline-flex items-center gap-1 text-brand-purple font-semibold underline-sweep', lang === 'bn' && 'font-bangla')}>
               {t.learning.cta}

@@ -22,9 +22,9 @@ export function SectionHero({
     <Section tone={tone} spacing="lg">
       <Container>
         <Reveal>
-          <div className={cn('max-w-3xl space-y-4', align === 'center' && 'mx-auto text-center')}>
+          <div className={cn('max-w-3xl space-y-5', align === 'center' && 'mx-auto text-center')}>
             <p className={cn('eyebrow', bangla && 'font-bangla')}>{eyebrow}</p>
-            <h1 className={cn('display-l text-ink-body', bangla && 'font-bangla')}>{title}</h1>
+            <h1 className={cn('display-serif-l text-ink-body', bangla && 'font-bangla')}>{title}</h1>
             {body && <p className={cn('body-large body-muted', bangla && 'font-bangla body-bn')}>{body}</p>}
           </div>
         </Reveal>

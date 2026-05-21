@@ -59,7 +59,7 @@ export default function About() {
         <Container>
           <Reveal>
             <p className="eyebrow mb-3">CAREER MILESTONES</p>
-            <h2 className="h1 mb-10">A thirty-five-year arc.</h2>
+            <h2 className="display-serif-l mb-10">A thirty-five-year arc.</h2>
           </Reveal>
           <Stagger className="space-y-4 max-w-3xl" staggerChildren={0.05}>
             {credentials.timeline.map((m) => (
@@ -103,7 +103,7 @@ export default function About() {
             <div className="mb-10 flex flex-col items-start gap-3 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="eyebrow mb-3">CREDENTIALS</p>
-                <h2 className="display-l">Education, fellowships, memberships.</h2>
+                <h2 className="display-serif-l">Education, fellowships, memberships.</h2>
               </div>
             </div>
           </Reveal>

@@ -14,7 +14,7 @@ export default function Laboratory() {
           <Reveal>
             <div className="space-y-5">
               <p className="eyebrow text-bg-warm/70">THE LABORATORY</p>
-              <h1 className="display-xl font-serif">Where embryos are protected like patients.</h1>
+              <h1 className="display-serif-xl">Where embryos are protected like patients.</h1>
               <p className="body-large text-bg-warm/80 max-w-prose">
                 The Uttara Fertility Centre laboratory is the most consequential room in this practice.
                 Outcomes are decided here. The equipment, the cleanroom standard, and the team have all
@@ -41,7 +41,7 @@ export default function Laboratory() {
               <Reveal className={idx % 2 === 1 ? 'lg:col-start-2' : ''}>
                 <div className="space-y-5">
                   <p className="eyebrow">FEATURE 0{idx + 1}</p>
-                  <h2 className="display-l text-ink-body">{feature.title}</h2>
+                  <h2 className="display-serif-l text-ink-body">{feature.title}</h2>
                   <p className="font-serif text-2xl text-brand-purpleDark leading-snug">{feature.oneLine}</p>
                   <p className="body-large body-muted max-w-prose">{feature.body}</p>
                 </div>

@@ -16,7 +16,7 @@ export function LabTeaser() {
           <Reveal>
             <div className="space-y-5">
               <p className={cn('eyebrow text-bg-warm/70', lang === 'bn' && 'font-bangla')}>{t.lab.eyebrow}</p>
-              <h2 className={cn('display-l font-serif', lang === 'bn' && 'font-bangla')}>{t.lab.title}</h2>
+              <h2 className={cn('display-serif-xl', lang === 'bn' && 'font-bangla')}>{t.lab.title}</h2>
               <p className={cn('body-large text-bg-warm/80 max-w-prose', lang === 'bn' && 'font-bangla body-bn')}>{t.lab.body}</p>
               <Link to="/laboratory" className="btn-pill bg-bg-warm text-brand-purpleDark hover:bg-brand-purpleSoft">
                 <span className={cn(lang === 'bn' && 'font-bangla')}>{t.lab.cta}</span>

@@ -51,7 +51,7 @@ export default function TreatmentDetail() {
         <Container>
           <Reveal>
             <p className="eyebrow mb-3">THE PROCESS</p>
-            <h2 className="h1 mb-10">Step by step, at this practice.</h2>
+            <h2 className="display-serif-l mb-10">Step by step, at this practice.</h2>
           </Reveal>
           <Stagger className="space-y-5" staggerChildren={0.05}>
             {treatment.process.map((step) => (
@@ -90,7 +90,7 @@ export default function TreatmentDetail() {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <p className="eyebrow mb-3">COST TRANSPARENCY</p>
-              <h2 className="h1 mb-6">{fmtBdt(treatment.cost.rangeBdt[0])} – {fmtBdt(treatment.cost.rangeBdt[1])}</h2>
+              <h2 className="display-serif-m mb-6">{fmtBdt(treatment.cost.rangeBdt[0])} – {fmtBdt(treatment.cost.rangeBdt[1])}</h2>
               <div className="space-y-5">
                 <div>
                   <p className="text-sm font-semibold text-ink-body mb-2">Included</p>
@@ -118,7 +118,7 @@ export default function TreatmentDetail() {
 
             <Reveal delay={0.1}>
               <p className="eyebrow mb-3">SUCCESS RATES</p>
-              <h2 className="h1 mb-6">Honest, age-banded.</h2>
+              <h2 className="display-serif-m mb-6">Honest, age-banded.</h2>
               <ul className="space-y-3">
                 {treatment.successRate.map((r) => (
                   <li key={r.band} className="card-base flex items-baseline justify-between gap-4 p-4">
@@ -137,7 +137,7 @@ export default function TreatmentDetail() {
         <Container>
           <Reveal>
             <p className="eyebrow mb-3">QUESTIONS</p>
-            <h2 className="h1 mb-10">Honest answers to common questions.</h2>
+            <h2 className="display-serif-l mb-10">Honest answers to common questions.</h2>
           </Reveal>
           <div className="max-w-3xl space-y-3">
             {treatment.faqs.map((f, i) => {

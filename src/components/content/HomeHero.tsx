@@ -12,25 +12,47 @@ export function HomeHero() {
 
   return (
     <section className="relative overflow-hidden bg-bg-warm">
-      <Container className="relative grid grid-cols-1 items-center gap-10 py-12 md:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
+      {/* Soft decorative ornament */}
+      <svg
+        aria-hidden
+        viewBox="0 0 200 200"
+        className="pointer-events-none absolute -left-12 top-20 hidden h-44 w-44 text-accent-blush/40 lg:block"
+      >
+        <path
+          d="M40 100 Q 40 40, 100 40 Q 160 40, 160 100 Q 160 160, 100 160 Q 40 160, 40 100 Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        />
+        <path
+          d="M60 100 Q 60 60, 100 60 Q 140 60, 140 100 Q 140 140, 100 140 Q 60 140, 60 100 Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+          opacity="0.6"
+        />
+      </svg>
+
+      <Container className="relative grid grid-cols-1 items-center gap-12 py-14 md:py-24 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:py-32">
         <div className="space-y-7">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: duration.long, ease: easing.enter, delay: 0.05 }}
-            className={cn('eyebrow', lang === 'bn' && 'font-bangla')}
+            className="flex items-center gap-3"
           >
-            {t.hero.eyebrow}
-          </motion.p>
+            <span aria-hidden className="h-px w-10 bg-accent-gold" />
+            <p className={cn('eyebrow text-accent-gold', lang === 'bn' && 'font-bangla')}>{t.hero.eyebrow}</p>
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: duration.film, ease: easing.enter, delay: 0.15 }}
-            className={cn('display-xl text-ink-body', lang === 'bn' && 'font-bangla')}
+            className={cn('display-serif-xl text-ink-body', lang === 'bn' && 'font-bangla')}
           >
             <span>{t.hero.headlineLead}</span>{' '}
-            <span className="font-serif italic font-normal">{t.hero.headlineEmph}</span>
+            <span className="italic text-brand-purple/90">{t.hero.headlineEmph}</span>
           </motion.h1>
 
           <motion.p
@@ -46,7 +68,7 @@ export function HomeHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: duration.long, ease: easing.enter, delay: 0.55 }}
-            className="font-bangla text-ink-body/80 text-lg leading-relaxed"
+            className="font-bangla text-ink-body/70 text-lg leading-relaxed"
           >
             {t.hero.subheadBn}
           </motion.p>
@@ -55,7 +77,7 @@ export function HomeHero() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: duration.long, ease: easing.enter, delay: 0.7 }}
-            className="flex flex-wrap items-center gap-3 pt-2"
+            className="flex flex-wrap items-center gap-3 pt-3"
           >
             <Link to="/contact" className="btn-primary">
               <Calendar size={18} />
@@ -74,13 +96,22 @@ export function HomeHero() {
           transition={{ duration: duration.film, ease: easing.enter, delay: 0.25 }}
           className="relative"
         >
+          {/* soft blush halo */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-6 -top-6 h-32 w-32 rounded-full bg-accent-blush/30 blur-3xl"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-brand-purpleSoft blur-3xl"
+          />
           <Portrait
             src="/images/portraits/drliza-hero.webp"
             srcSmall="/images/portraits/drliza-hero-800.webp"
             alt="Dr. Liza Chowdhury at the Uttara Fertility Centre reception"
             aspect="3-4"
             priority
-            className="shadow-2xl"
+            className="relative shadow-soft"
           />
         </motion.div>
       </Container>
