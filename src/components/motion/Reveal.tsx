@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
-import { easing, duration } from '../../lib/tokens';
+
+const REVEAL_DURATION = 0.45;
+const REVEAL_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const REVEAL_AMOUNT = 0.15;
 
 export function Reveal({
   children,
   delay = 0,
-  y = 16,
+  y = 12,
   className,
 }: {
   children: ReactNode;
@@ -17,8 +20,8 @@ export function Reveal({
     <motion.div
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: duration.long, ease: easing.enter, delay }}
+      viewport={{ once: true, amount: REVEAL_AMOUNT }}
+      transition={{ duration: REVEAL_DURATION, ease: REVEAL_EASE, delay }}
       className={className}
     >
       {children}
@@ -29,7 +32,7 @@ export function Reveal({
 export function Stagger({
   children,
   className,
-  staggerChildren = 0.06,
+  staggerChildren = 0.04,
 }: {
   children: ReactNode;
   className?: string;
@@ -39,7 +42,7 @@ export function Stagger({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: REVEAL_AMOUNT }}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren } },
@@ -53,7 +56,7 @@ export function Stagger({
 
 export function StaggerItem({
   children,
-  y = 16,
+  y = 12,
   className,
 }: {
   children: ReactNode;
@@ -64,7 +67,7 @@ export function StaggerItem({
     <motion.div
       variants={{
         hidden: { opacity: 0, y },
-        visible: { opacity: 1, y: 0, transition: { duration: duration.long, ease: easing.enter } },
+        visible: { opacity: 1, y: 0, transition: { duration: REVEAL_DURATION, ease: REVEAL_EASE } },
       }}
       className={className}
     >

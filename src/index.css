@@ -48,21 +48,6 @@
     border-radius: 4px;
   }
 
-  /* Lenis */
-  html.lenis,
-  html.lenis body {
-    height: auto;
-  }
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -184,14 +169,25 @@
     transform: translateY(-1px);
   }
 
-  /* Aurora orb — used inside AuroraBackdrop */
+  /* Aurora orb — used inside AuroraBackdrop. Drift via CSS keyframes so the
+     main thread stays free during scroll (Framer's JS animate prop forced a
+     full-viewport repaint every frame). Blur reduced from 72→56 and orbs are
+     promoted with translateZ so they live on their own composited layer. */
   .aurora-orb {
     position: absolute;
     border-radius: 9999px;
-    filter: blur(72px);
+    filter: blur(56px);
     opacity: 0.55;
     pointer-events: none;
     will-change: transform;
+    transform: translateZ(0);
+  }
+  .aurora-drift-a { animation: aurora-a 28s ease-in-out infinite; }
+  .aurora-drift-b { animation: aurora-b 32s ease-in-out infinite 2s; }
+  .aurora-drift-c { animation: aurora-c 36s ease-in-out infinite 4s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aurora-drift-a, .aurora-drift-b, .aurora-drift-c { animation: none; }
   }
 
   /* Animated gradient frame — a thick outer band of color sweeping left to right
@@ -218,6 +214,19 @@
 
 @keyframes gb-sweep {
   to { background-position: -220% 0%; }
+}
+
+@keyframes aurora-a {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(30px, 20px, 0); }
+}
+@keyframes aurora-b {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(-25px, -15px, 0); }
+}
+@keyframes aurora-c {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(20px, -20px, 0); }
 }
 
 @layer components {

@@ -6,6 +6,7 @@ export function useScrollDirection() {
 
   useEffect(() => {
     let lastY = window.scrollY;
+    let lastPast = window.scrollY > 100;
     let raf = 0;
     const update = () => {
       const y = window.scrollY;
@@ -14,7 +15,11 @@ export function useScrollDirection() {
         setDirection(diff > 0 ? 'down' : 'up');
         lastY = y;
       }
-      setScrolledPast(y > 100);
+      const past = y > 100;
+      if (past !== lastPast) {
+        setScrolledPast(past);
+        lastPast = past;
+      }
       raf = 0;
     };
     const onScroll = () => {
