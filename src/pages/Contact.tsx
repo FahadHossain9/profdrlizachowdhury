@@ -51,9 +51,11 @@ export default function Contact() {
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow="CONTACT"
         title="When you're ready to talk, I'm here."
         body="Three ways to reach the practice. WhatsApp is fastest. The form is for non-urgent enquiries — a coordinator replies within 4 hours."
+        crumbs={[{ label: 'Contact' }]}
       />
 
       <Section tone="warm" spacing="xl">

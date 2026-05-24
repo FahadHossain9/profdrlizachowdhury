@@ -31,8 +31,10 @@ export default function Ethics() {
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow="PRACTICE ETHICS"
         title="How I practise, and why."
+        crumbs={[{ label: 'Ethics' }]}
       />
       <Section tone="warm" spacing="xl">
         <Container>

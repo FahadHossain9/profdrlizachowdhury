@@ -11,9 +11,11 @@ export default function About() {
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow="ABOUT"
         title="A pioneer, a scholar, a clinician."
         body="Major General Prof. Dr. Liza Chowdhury (Retd.) is the founder of Bangladesh's first government fertility centre and the architect of an academic career that has trained the country's next generation of OBGYN specialists."
+        crumbs={[{ label: 'About' }]}
       />
 
       <Section tone="warm" spacing="xl">

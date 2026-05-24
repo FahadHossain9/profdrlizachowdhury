@@ -9,9 +9,11 @@ export default function Journey() {
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow="YOUR JOURNEY"
         title="Knowing what to expect makes the journey easier."
         body="From the first phone call to the result — and beyond — what actually happens at each stage."
+        crumbs={[{ label: 'Your Journey' }]}
       />
       <Section tone="warm" spacing="xl">
         <Container>

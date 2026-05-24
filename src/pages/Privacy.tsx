@@ -7,8 +7,10 @@ export default function Privacy() {
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow="PRIVACY & CONFIDENTIALITY"
         title="What we collect, and what we don't."
+        crumbs={[{ label: 'Privacy' }]}
       />
       <Section tone="warm" spacing="xl">
         <Container>
