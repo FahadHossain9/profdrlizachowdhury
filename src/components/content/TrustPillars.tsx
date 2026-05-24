@@ -7,7 +7,7 @@ import { Portrait } from './Portrait';
 import { cn } from '../../lib/cn';
 
 const icons = [Award, Globe, FlaskConical];
-const accentColors = ['text-accent-gold', 'text-brand-purple', 'text-accent-sage'];
+const accentColors = ['text-brand-purple', 'text-brand-purpleDark', 'text-accent-sage'];
 
 export function TrustPillars() {
   const { t, lang } = useLanguage();
@@ -28,7 +28,7 @@ export function TrustPillars() {
               </div>
               {/* signature credential chip */}
               <div className="absolute -bottom-6 right-4 md:right-8 glass-card px-4 py-3 max-w-[240px]">
-                <p className="text-[10px] uppercase tracking-wider text-accent-gold font-semibold">
+                <p className="text-[10px] uppercase tracking-wider text-brand-purple font-semibold">
                   Major Gen. Prof.
                 </p>
                 <p className={cn('text-sm font-semibold text-ink-body leading-snug mt-0.5', lang === 'bn' && 'font-bangla')}>

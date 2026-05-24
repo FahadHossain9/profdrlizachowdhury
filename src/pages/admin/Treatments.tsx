@@ -60,7 +60,7 @@ export default function AdminTreatments() {
         <div>
           <p className="font-medium text-ink-body">
             {t.name}
-            {t.isPriority && <span className="ml-2 inline-flex items-center rounded-full bg-accent-gold/15 px-1.5 py-0.5 text-[10px] font-semibold text-accent-gold uppercase tracking-wider">Primary</span>}
+            {t.isPriority && <span className="ml-2 inline-flex items-center rounded-full bg-brand-purpleSoft px-1.5 py-0.5 text-[10px] font-semibold text-brand-purpleDark uppercase tracking-wider">Primary</span>}
           </p>
           <p className="mt-0.5 text-[11px] text-ink-muted line-clamp-1">{t.oneLiner}</p>
         </div>

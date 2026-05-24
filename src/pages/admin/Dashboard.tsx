@@ -23,10 +23,10 @@ export default function AdminDashboard() {
   const stats = [
     { label: 'Appointments', count: appointments.length, icon: CalendarCheck, to: '/admin/appointments', tint: 'from-accent-sage/20 to-accent-sage/5 text-accent-sage', badge: newAppointments > 0 ? `${newAppointments} new` : undefined },
     { label: 'Articles', count: articles.length, icon: FileText, to: '/admin/articles', tint: 'from-brand-purple/15 to-brand-purpleSoft text-brand-purpleDark', badge: undefined },
-    { label: 'Videos', count: videos.length, icon: Video, to: '/admin/videos', tint: 'from-accent-gold/15 to-accent-gold/5 text-accent-gold', badge: undefined },
-    { label: 'Stories', count: stories.length, icon: Quote, to: '/admin/stories', tint: 'from-accent-blush/25 to-accent-blush/5 text-accent-terracotta', badge: undefined },
-    { label: 'Treatments', count: treatments.length, icon: FlaskConical, to: '/admin/treatments', tint: 'from-accent-sage/15 to-accent-sage/5 text-accent-sage', badge: undefined },
-    { label: 'Chambers', count: chambers.length, icon: MapPin, to: '/admin/chambers', tint: 'from-brand-purpleSoft to-bg-cream text-brand-purple', badge: undefined },
+    { label: 'Videos', count: videos.length, icon: Video, to: '/admin/videos', tint: 'from-brand-purpleLight/30 to-brand-purpleSoft text-brand-purpleDark', badge: undefined },
+    { label: 'Stories', count: stories.length, icon: Quote, to: '/admin/stories', tint: 'from-brand-purpleSoft to-white text-brand-purple', badge: undefined },
+    { label: 'Treatments', count: treatments.length, icon: FlaskConical, to: '/admin/treatments', tint: 'from-brand-purple/12 to-brand-purpleSoft/40 text-brand-purpleDark', badge: undefined },
+    { label: 'Chambers', count: chambers.length, icon: MapPin, to: '/admin/chambers', tint: 'from-brand-purpleLight/25 to-bg-cream text-brand-purple', badge: undefined },
   ];
 
   const resetAll = () => {

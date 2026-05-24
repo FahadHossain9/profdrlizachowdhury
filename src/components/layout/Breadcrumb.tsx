@@ -31,15 +31,10 @@ export function Breadcrumb({
       className={cn(
         'inline-flex items-center text-xs',
         isFilled
-          ? 'rounded-full pl-3.5 pr-4 py-1.5 text-white shadow-card'
+          ? 'bg-purple-gradient-dark rounded-full pl-3.5 pr-4 py-1.5 text-white shadow-card'
           : 'text-ink-muted',
         className,
       )}
-      style={
-        isFilled
-          ? { background: 'linear-gradient(135deg, #0E1A4D 0%, #192B72 100%)' }
-          : undefined
-      }
     >
       <ol className="flex flex-wrap items-center gap-1.5">
         {full.map((item, i) => {

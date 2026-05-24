@@ -20,7 +20,7 @@ export function HomeHero() {
             transition={{ duration: duration.long, ease: easing.enter, delay: 0.05 }}
             className="inline-flex items-center gap-2 glass-pill px-4 py-1.5"
           >
-            <Sparkles size={13} className="text-accent-gold" />
+            <Sparkles size={13} className="text-brand-purple" />
             <p className={cn('eyebrow text-ink-body/80', lang === 'bn' && 'font-bangla')}>{t.hero.eyebrow}</p>
           </motion.div>
 
@@ -97,7 +97,7 @@ export function HomeHero() {
             transition={{ duration: duration.long, ease: easing.enter, delay: 0.9 }}
             className="absolute -bottom-5 -left-4 md:-left-8 glass-card px-4 py-3 max-w-[220px]"
           >
-            <p className={cn('text-[10px] uppercase tracking-wider text-accent-gold font-semibold', lang === 'bn' && 'font-bangla')}>
+            <p className={cn('text-[10px] uppercase tracking-wider text-brand-purple font-semibold', lang === 'bn' && 'font-bangla')}>
               {t.hero.credentialChip.years}
             </p>
             <p className={cn('text-sm font-semibold text-ink-body leading-snug mt-0.5', lang === 'bn' && 'font-bangla')}>

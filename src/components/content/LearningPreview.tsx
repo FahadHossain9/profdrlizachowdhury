@@ -8,10 +8,10 @@ import { useResource, videoStore, articleStore } from '../../lib/store';
 import { cn } from '../../lib/cn';
 
 const topicColor: Record<string, string> = {
-  IVF: 'bg-brand-purpleSoft text-brand-purpleDark',
+  IVF: 'bg-brand-purple/10 text-brand-purpleDark',
   Diagnosis: 'bg-accent-sage/15 text-accent-sage',
-  'Male Factor': 'bg-accent-blush/25 text-accent-terracotta',
-  Lifestyle: 'bg-accent-gold/15 text-accent-gold',
+  'Male Factor': 'bg-brand-purpleSoft text-brand-purple',
+  Lifestyle: 'bg-brand-purpleLight/20 text-brand-purpleDark',
   'Emotional Health': 'bg-brand-purpleSoft text-brand-purple',
   Surgery: 'bg-ink-deep/10 text-ink-deep',
 };
@@ -85,7 +85,7 @@ export function LearningPreview() {
           <Reveal>
             <div className="mb-5 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-accent-blush/30 text-accent-terracotta">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-brand-purpleLight/30 text-brand-purpleDark">
                   <BookOpen size={14} />
                 </span>
                 <h3 className="h3 text-ink-body">Read — in-depth guides</h3>

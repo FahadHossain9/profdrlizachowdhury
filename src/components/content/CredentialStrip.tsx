@@ -25,16 +25,16 @@ export function CredentialStrip() {
           <div className="rounded-[1.05rem] bg-bg-card px-6 md:px-10 py-8 md:py-10">
             <Reveal>
               <div className="flex items-center justify-center gap-3 mb-6">
-                <span aria-hidden className="h-px w-8 bg-accent-gold/60" />
+                <span aria-hidden className="h-px w-8 bg-brand-purple/40" />
                 <p
                   className={cn(
-                    'text-[10px] md:text-[11px] uppercase tracking-[0.22em] font-semibold text-accent-gold',
+                    'text-[10px] md:text-[11px] uppercase tracking-[0.22em] font-semibold text-brand-purple',
                     lang === 'bn' && 'font-bangla',
                   )}
                 >
                   Credentials &amp; Training
                 </p>
-                <span aria-hidden className="h-px w-8 bg-accent-gold/60" />
+                <span aria-hidden className="h-px w-8 bg-brand-purple/40" />
               </div>
             </Reveal>
             <Reveal>

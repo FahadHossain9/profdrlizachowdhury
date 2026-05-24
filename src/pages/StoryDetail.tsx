@@ -30,7 +30,7 @@ export default function StoryDetail() {
               </div>
             </Reveal>
             <Reveal>
-              <p className="pullquote text-ink-deep border-l-2 border-accent-gold pl-5">
+              <p className="pullquote text-ink-deep border-l-2 border-brand-purple pl-5">
                 &ldquo;{story.pullQuote}&rdquo;
               </p>
             </Reveal>

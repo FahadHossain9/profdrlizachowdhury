@@ -100,6 +100,10 @@
   .bg-purple-gradient-soft {
     background: linear-gradient(135deg, rgba(25, 43, 114, 0.92) 0%, rgba(53, 77, 174, 0.85) 100%);
   }
+  /* Deeper variant — used by filled breadcrumb pill on the gradient banner */
+  .bg-purple-gradient-dark {
+    background: linear-gradient(135deg, #0E1A4D 0%, #192B72 100%);
+  }
 
   .btn-secondary {
     @apply inline-flex items-center gap-2 rounded-full border border-brand-purple/40 bg-transparent px-6 py-3 font-medium text-brand-purple transition-colors duration-200 ease-out-quint hover:bg-brand-purpleSoft hover:border-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 focus-visible:ring-offset-bg-warm;
@@ -190,11 +194,9 @@
     background-image: linear-gradient(
       90deg,
       #192B72 0%,
-      #354DAE 18%,
-      #8E9CCF 38%,
-      #B8956A 50%,
-      #8E9CCF 62%,
-      #354DAE 82%,
+      #354DAE 25%,
+      #8E9CCF 50%,
+      #354DAE 75%,
       #192B72 100%
     );
     background-size: 220% 100%;
@@ -329,7 +331,7 @@
   }
 
   .ornament-rule {
-    @apply flex items-center gap-3 text-accent-gold;
+    @apply flex items-center gap-3 text-brand-purple/70;
   }
   .ornament-rule::before,
   .ornament-rule::after {

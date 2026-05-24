@@ -10,10 +10,10 @@ import { FinalCTA } from '../components/content/FinalCTA';
 import { cn } from '../lib/cn';
 
 const topicColor: Record<string, string> = {
-  IVF: 'bg-brand-purpleSoft text-brand-purple',
+  IVF: 'bg-brand-purple/10 text-brand-purpleDark',
   Diagnosis: 'bg-accent-sage/15 text-accent-sage',
-  'Male Factor': 'bg-accent-blush/25 text-accent-terracotta',
-  Lifestyle: 'bg-accent-gold/15 text-accent-gold',
+  'Male Factor': 'bg-brand-purpleSoft text-brand-purple',
+  Lifestyle: 'bg-brand-purpleLight/20 text-brand-purpleDark',
   'Emotional Health': 'bg-brand-purpleSoft text-brand-purpleDark',
   Surgery: 'bg-ink-deep/10 text-ink-deep',
 };

@@ -28,7 +28,7 @@ export function AdminLayout() {
   const crumbs = useAdminCrumbs();
 
   return (
-    <div className="flex min-h-screen bg-[#F5F3F0]">
+    <div className="flex min-h-screen bg-bg-warm">
       {/* Sidebar — desktop */}
       <aside className="hidden lg:flex w-64 shrink-0 flex-col border-r border-line/60 bg-white">
         <SidebarBody />

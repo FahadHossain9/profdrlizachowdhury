@@ -37,7 +37,7 @@ export function JourneyPreview() {
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-purpleDeep text-bg-warm text-sm font-semibold">
                       0{stage.index}
                     </span>
-                    <span className="text-[10px] uppercase tracking-wider text-accent-gold font-semibold">{stage.duration}</span>
+                    <span className="text-[10px] uppercase tracking-wider text-brand-purple font-semibold">{stage.duration}</span>
                   </div>
                   <h3 className="h3 text-ink-body">{stage.title}</h3>
                   <p className="text-sm body-muted leading-relaxed">{stage.subtitle}</p>
