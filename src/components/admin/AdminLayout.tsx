@@ -40,7 +40,7 @@ export function AdminLayout() {
           <button
             type="button"
             aria-label="Close menu"
-            className="absolute inset-0 bg-ink-deep/40"
+            className="absolute inset-0 bg-brand-purpleDeep/40"
             onClick={() => setMobileOpen(false)}
           />
           <aside className="relative flex h-full w-72 flex-col bg-white">

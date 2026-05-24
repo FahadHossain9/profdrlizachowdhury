@@ -435,7 +435,7 @@ export function AdminFormSheet({
       <button
         type="button"
         aria-label="Close"
-        className="absolute inset-0 bg-ink-deep/40"
+        className="absolute inset-0 bg-brand-purpleDeep/40"
         onClick={onClose}
       />
       <div className="absolute right-0 top-0 h-full w-full max-w-2xl bg-white shadow-2xl flex flex-col animate-in slide-in-from-right">

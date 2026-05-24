@@ -9,7 +9,7 @@ import { FinalCTA } from '../components/content/FinalCTA';
 export default function Laboratory() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink-deep text-bg-warm">
+      <section className="relative overflow-hidden bg-section-dark text-bg-warm">
         <Container className="relative grid grid-cols-1 items-center gap-10 py-20 md:py-28 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <div className="space-y-5">

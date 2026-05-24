@@ -13,7 +13,7 @@ const topicColor: Record<string, string> = {
   'Male Factor': 'bg-brand-purpleSoft text-brand-purple',
   Lifestyle: 'bg-brand-purpleLight/20 text-brand-purpleDark',
   'Emotional Health': 'bg-brand-purpleSoft text-brand-purple',
-  Surgery: 'bg-ink-deep/10 text-ink-deep',
+  Surgery: 'bg-brand-purpleDeep/10 text-brand-purpleDeep',
 };
 
 export function LearningPreview() {

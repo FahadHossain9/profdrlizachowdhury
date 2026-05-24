@@ -8,7 +8,7 @@ const toneClass: Record<Tone, string> = {
   cream: 'bg-bg-cream/35',
   card: 'bg-bg-card/60 backdrop-blur-sm',
   'purple-soft': 'bg-brand-purpleSoft/30',
-  dark: 'bg-ink-deep text-bg-warm relative',
+  dark: 'bg-section-dark text-bg-warm relative',
   aurora: 'bg-transparent',
 };
 

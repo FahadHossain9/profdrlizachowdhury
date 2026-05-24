@@ -22,7 +22,7 @@ const statusStyles: Record<AppointmentStatus, string> = {
   new: 'bg-brand-purpleSoft text-brand-purpleDark',
   contacted: 'bg-accent-gold/15 text-accent-gold',
   scheduled: 'bg-accent-sage/20 text-accent-sage',
-  completed: 'bg-ink-deep/10 text-ink-deep',
+  completed: 'bg-brand-purpleDeep/10 text-brand-purpleDeep',
   cancelled: 'bg-red-50 text-red-600',
 };
 
