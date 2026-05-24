@@ -5,7 +5,7 @@ import { SectionHero } from '../components/content/SectionHero';
 import { Section } from '../components/layout/Section';
 import { Container } from '../components/layout/Container';
 import { Reveal, Stagger, StaggerItem } from '../components/motion/Reveal';
-import { getTreatment, treatments } from '../data/treatments';
+import { useResource, treatmentStore } from '../lib/store';
 import { whatsappLink } from '../lib/whatsapp';
 import { FinalCTA } from '../components/content/FinalCTA';
 import { cn } from '../lib/cn';
@@ -15,7 +15,8 @@ const fmtBdt = (n: number) =>
 
 export default function TreatmentDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const treatment = slug ? getTreatment(slug) : undefined;
+  const treatments = useResource(treatmentStore);
+  const treatment = slug ? treatments.find((t) => t.slug === slug) : undefined;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   if (!treatment) return <Navigate to="/treatments" replace />;
@@ -23,10 +24,12 @@ export default function TreatmentDetail() {
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow={treatment.isPriority ? 'PRIMARY TREATMENT' : 'TREATMENT'}
         title={treatment.name}
         body={treatment.oneLiner}
         align="left"
+        crumbs={[{ label: 'Treatments', to: '/treatments' }, { label: treatment.name }]}
       />
 
       <Section tone="cream" spacing="lg">

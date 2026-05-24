@@ -6,17 +6,20 @@ export default {
     extend: {
       colors: {
         brand: {
-          // softened: dustier, less saturated purple — feels considered, not corporate
-          purple: '#7E4B9D',
-          purpleDark: '#5C3477',
-          purpleLight: '#C7B2D9',
-          purpleSoft: '#F1E9F6',
+          // deep navy primary — high contrast for white text on filled surfaces.
+          // (Token names kept as `purple*` to avoid churning every component className.)
+          purple: '#192B72',       // primary brand navy (gradient anchor — darker end)
+          purpleLite: '#354DAE',   // secondary (gradient anchor — lighter end)
+          purpleDark: '#0E1A4D',
+          purpleLight: '#8E9CCF',  // lighter UI bits (active states, secondary icons)
+          purpleSoft: '#E8ECF6',   // very soft tint for backgrounds / icon tiles
+          purpleDeep: '#0A0E26',   // darkest contrast accent
         },
         bg: {
-          warm: '#FAF6F2',
-          cream: '#F1E9E1',
+          warm: '#FCFBFC',   // near-white with a whisper of warm-cool tint
+          cream: '#F4F2F8',  // very light lavender-cream
           card: '#FFFFFF',
-          blush: '#F7ECE6',
+          blush: '#FAF6F4',  // soft off-white blush
         },
         ink: {
           body: '#3D3540',
@@ -33,9 +36,9 @@ export default {
       },
       fontFamily: {
         sans: ['"Inter Variable"', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['"Inter Tight Variable"', '"Inter Variable"', 'system-ui', 'sans-serif'],
+        display: ['"Inter Variable"', 'Inter', 'system-ui', 'sans-serif'],
         bangla: ['"Hind Siliguri"', 'system-ui', 'sans-serif'],
-        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
+        serif: ['"Fraunces Variable"', '"DM Serif Display"', 'Georgia', 'serif'],
       },
       transitionTimingFunction: {
         'out-quint': 'cubic-bezier(0.22, 1, 0.36, 1)',

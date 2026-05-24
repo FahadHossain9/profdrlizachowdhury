@@ -25,16 +25,16 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          'sticky top-0 z-50 w-full transition-all duration-350 ease-out-quint',
-          scrolledPast ? 'bg-bg-warm/85 backdrop-blur-md border-b border-line' : 'bg-bg-warm/0',
+          'sticky top-0 z-50 w-full bg-white/85 backdrop-blur-md border-b transition-shadow duration-200',
+          scrolledPast ? 'border-line shadow-sm' : 'border-transparent',
         )}
       >
         <Container className="flex items-center justify-between py-4 md:py-5">
-          <Link to="/" className="group flex flex-col leading-tight">
-            <span className={cn('font-display text-base md:text-lg font-semibold tracking-tight text-ink-body', lang === 'bn' && 'font-bangla')}>
+          <Link to="/" className="group flex flex-col leading-[1.15]">
+            <span className={cn('font-display text-base md:text-lg font-semibold tracking-tight text-brand-purple', lang === 'bn' && 'font-bangla')}>
               {t.meta.siteName}
             </span>
-            <span className={cn('text-[11px] md:text-xs body-muted', lang === 'bn' && 'font-bangla')}>
+            <span className={cn('mt-0.5 text-[11px] md:text-xs body-muted', lang === 'bn' && 'font-bangla')}>
               {t.meta.siteRole}
             </span>
           </Link>

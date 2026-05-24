@@ -1,21 +1,46 @@
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, BookOpen, Search } from 'lucide-react';
 import { SectionHero } from '../components/content/SectionHero';
 import { Section } from '../components/layout/Section';
 import { Container } from '../components/layout/Container';
 import { Reveal, Stagger, StaggerItem } from '../components/motion/Reveal';
-import { videos } from '../data/videos';
-import { articles } from '../data/articles';
+import { Pagination } from '../components/admin/AdminPrimitives';
+import { useResource, videoStore, articleStore } from '../lib/store';
 import { glossary } from '../data/glossary';
 import { FinalCTA } from '../components/content/FinalCTA';
 
+const VIDEOS_PER_PAGE = 12;
+const ARTICLES_PER_PAGE = 9;
+
 export default function Learning() {
+  const videos = useResource(videoStore);
+  const articles = useResource(articleStore);
+  const [videoPage, setVideoPage] = useState(1);
+  const [articlePage, setArticlePage] = useState(1);
+
+  const videoTotalPages = Math.max(1, Math.ceil(videos.length / VIDEOS_PER_PAGE));
+  const articleTotalPages = Math.max(1, Math.ceil(articles.length / ARTICLES_PER_PAGE));
+  const safeVideoPage = Math.min(videoPage, videoTotalPages);
+  const safeArticlePage = Math.min(articlePage, articleTotalPages);
+
+  const pageVideos = useMemo(
+    () => videos.slice((safeVideoPage - 1) * VIDEOS_PER_PAGE, safeVideoPage * VIDEOS_PER_PAGE),
+    [videos, safeVideoPage],
+  );
+  const pageArticles = useMemo(
+    () => articles.slice((safeArticlePage - 1) * ARTICLES_PER_PAGE, safeArticlePage * ARTICLES_PER_PAGE),
+    [articles, safeArticlePage],
+  );
+
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow="LEARNING CENTRE"
         title="Knowledge is the first step toward parenthood."
         body="Twenty videos. Ten written articles. A fifty-term bilingual glossary. Education built on Dr. Liza's clinical experience, written and recorded for patients in Bangladesh."
+        crumbs={[{ label: 'Learning' }]}
       />
 
       <Section tone="warm" spacing="xl">
@@ -23,11 +48,11 @@ export default function Learning() {
           <Reveal>
             <div className="mb-8 flex items-end justify-between">
               <h2 className="h1">Video library</h2>
-              <Link to="/learning/videos" className="text-sm font-semibold text-brand-purple underline-sweep">View all 20 →</Link>
+              <span className="text-sm text-ink-muted">{videos.length} videos</span>
             </div>
           </Reveal>
           <Stagger className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4" staggerChildren={0.04}>
-            {videos.slice(0, 8).map((v) => (
+            {pageVideos.map((v) => (
               <StaggerItem key={v.idx}>
                 <article className="card-base group block overflow-hidden">
                   <div className="relative aspect-video w-full">
@@ -49,6 +74,14 @@ export default function Learning() {
               </StaggerItem>
             ))}
           </Stagger>
+          {videoTotalPages > 1 && (
+            <Pagination
+              page={safeVideoPage}
+              totalPages={videoTotalPages}
+              onPage={(p) => { setVideoPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="mt-10"
+            />
+          )}
         </Container>
       </Section>
 
@@ -57,23 +90,31 @@ export default function Learning() {
           <Reveal>
             <div className="mb-8 flex items-end justify-between">
               <h2 className="h1">Articles</h2>
-              <Link to="/learning/articles" className="text-sm font-semibold text-brand-purple underline-sweep">View all →</Link>
+              <span className="text-sm text-ink-muted">{articles.length} articles</span>
             </div>
           </Reveal>
           <Stagger className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3" staggerChildren={0.05}>
-            {articles.slice(0, 6).map((a) => (
+            {pageArticles.map((a) => (
               <StaggerItem key={a.slug}>
-                <article className="card-base flex h-full flex-col gap-3 p-6">
+                <Link to={`/learning/articles/${a.slug}`} className="card-base group flex h-full flex-col gap-3 p-6">
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-purpleSoft text-brand-purple">
                     <BookOpen size={16} />
                   </span>
                   <p className="text-[10px] uppercase tracking-wider body-muted">{a.topic} · {a.readingTimeMin} min</p>
-                  <h3 className="h3 text-ink-body">{a.title}</h3>
+                  <h3 className="h3 text-ink-body group-hover:text-brand-purple transition-colors">{a.title}</h3>
                   <p className="text-sm body-muted line-clamp-3">{a.excerpt}</p>
-                </article>
+                </Link>
               </StaggerItem>
             ))}
           </Stagger>
+          {articleTotalPages > 1 && (
+            <Pagination
+              page={safeArticlePage}
+              totalPages={articleTotalPages}
+              onPage={(p) => { setArticlePage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="mt-10"
+            />
+          )}
         </Container>
       </Section>
 

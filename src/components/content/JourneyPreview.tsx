@@ -10,7 +10,7 @@ import { cn } from '../../lib/cn';
 export function JourneyPreview() {
   const { t, lang } = useLanguage();
   return (
-    <Section tone="warm" spacing="xl">
+    <Section tone="aurora" spacing="xl">
       <Container>
         <Reveal>
           <div className="mb-10 flex flex-col items-start gap-3 md:flex-row md:items-end md:justify-between">
@@ -32,13 +32,15 @@ export function JourneyPreview() {
                 key={stage.index}
                 className="snap-start shrink-0 w-[80%] sm:w-[55%] md:w-auto"
               >
-                <article className="card-base h-full p-6 flex flex-col gap-3">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink-deep text-bg-warm text-sm font-semibold">
-                    0{stage.index}
-                  </span>
+                <article className="glass-card h-full p-6 flex flex-col gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-purpleDeep text-bg-warm text-sm font-semibold">
+                      0{stage.index}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-wider text-accent-gold font-semibold">{stage.duration}</span>
+                  </div>
                   <h3 className="h3 text-ink-body">{stage.title}</h3>
-                  <p className="text-sm body-muted">{stage.subtitle}</p>
-                  <p className="text-xs uppercase tracking-wider text-accent-gold mt-auto pt-2">{stage.duration}</p>
+                  <p className="text-sm body-muted leading-relaxed">{stage.subtitle}</p>
                 </article>
               </StaggerItem>
             ))}

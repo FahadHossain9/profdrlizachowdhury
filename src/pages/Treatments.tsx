@@ -4,16 +4,19 @@ import { SectionHero } from '../components/content/SectionHero';
 import { Section } from '../components/layout/Section';
 import { Container } from '../components/layout/Container';
 import { Stagger, StaggerItem } from '../components/motion/Reveal';
-import { treatments } from '../data/treatments';
+import { useResource, treatmentStore } from '../lib/store';
 import { FinalCTA } from '../components/content/FinalCTA';
 
 export default function Treatments() {
+  const treatments = useResource(treatmentStore);
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow="TREATMENTS"
         title="Seven focused treatments. One careful philosophy."
         body="Conservative, fertility-preserving, evidence-based, individualised. The treatments below are the only ones offered at this practice — and they are the only ones we are confident recommending."
+        crumbs={[{ label: 'Treatments' }]}
       />
 
       <Section tone="warm" spacing="xl">

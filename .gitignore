@@ -38,6 +38,9 @@ public/videos/lab/
 # Pre-existing externally-optimised WebPs (not wired into the app)
 optimized-webp/
 
+# Local-only backups of in-place rotated images
+public/.image-backups/
+
 # Env
 .env
 .env.local

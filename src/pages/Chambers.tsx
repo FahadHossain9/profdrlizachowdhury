@@ -4,17 +4,20 @@ import { Container } from '../components/layout/Container';
 import { Stagger, StaggerItem } from '../components/motion/Reveal';
 import { Link } from 'react-router-dom';
 import { MapPin, ArrowUpRight } from 'lucide-react';
-import { chambers } from '../data/chambers';
+import { useResource, chamberStore } from '../lib/store';
 import { ChamberMap } from '../components/content/ChamberMap';
 import { FinalCTA } from '../components/content/FinalCTA';
 
 export default function Chambers() {
+  const chambers = useResource(chamberStore);
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow="CHAMBERS & BOOKING"
         title="Five chambers across Dhaka. UFCL is home."
         body="The Uttara Fertility Centre is the primary practice — every IVF cycle runs through its laboratory. The other four chambers exist for consultation and follow-up, closer to where you live."
+        crumbs={[{ label: 'Chambers' }]}
       />
 
       <ChamberMap />

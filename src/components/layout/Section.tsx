@@ -1,14 +1,15 @@
 import type { ReactNode } from 'react';
 import { cn } from '../../lib/cn';
 
-type Tone = 'warm' | 'cream' | 'card' | 'purple-soft' | 'dark';
+type Tone = 'warm' | 'cream' | 'card' | 'purple-soft' | 'dark' | 'aurora';
 
 const toneClass: Record<Tone, string> = {
-  warm: 'bg-bg-warm',
-  cream: 'bg-bg-cream',
-  card: 'bg-bg-card',
-  'purple-soft': 'bg-bg-cream',
-  dark: 'bg-ink-deep text-bg-warm',
+  warm: 'bg-transparent',
+  cream: 'bg-bg-cream/35',
+  card: 'bg-bg-card/60 backdrop-blur-sm',
+  'purple-soft': 'bg-brand-purpleSoft/30',
+  dark: 'bg-ink-deep text-bg-warm relative',
+  aurora: 'bg-transparent',
 };
 
 export function Section({

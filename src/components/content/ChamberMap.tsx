@@ -4,14 +4,15 @@ import { Section } from '../layout/Section';
 import { Container } from '../layout/Container';
 import { Reveal } from '../motion/Reveal';
 import { useLanguage } from '../../hooks/useLanguage';
-import { chambers } from '../../data/chambers';
+import { useResource, chamberStore } from '../../lib/store';
 import { cn } from '../../lib/cn';
 
 export function ChamberMap() {
   const { t, lang } = useLanguage();
+  const chambers = useResource(chamberStore);
 
   return (
-    <Section tone="warm" spacing="xl">
+    <Section tone="aurora" spacing="xl">
       <Container>
         <Reveal>
           <div className="mb-10 flex flex-col items-start gap-3 md:flex-row md:items-end md:justify-between">
@@ -29,22 +30,22 @@ export function ChamberMap() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
           {/* Stylised map */}
           <Reveal className="md:col-span-3">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-brand-purpleSoft/40 border border-line">
+            <div className="relative aspect-[4/3] w-full overflow-hidden glass-card p-0">
               <svg viewBox="0 0 400 300" className="absolute inset-0 h-full w-full" aria-hidden>
                 <defs>
                   <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#B594CC" strokeOpacity="0.18" strokeWidth="0.5" />
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8E9CCF" strokeOpacity="0.18" strokeWidth="0.5" />
                   </pattern>
                 </defs>
                 <rect width="400" height="300" fill="url(#grid)" />
                 {/* Stylised river */}
-                <path d="M -10 220 C 80 200, 160 250, 230 215 S 360 200, 420 230" stroke="#B594CC" strokeOpacity="0.45" strokeWidth="14" fill="none" strokeLinecap="round" />
+                <path d="M -10 220 C 80 200, 160 250, 230 215 S 360 200, 420 230" stroke="#8E9CCF" strokeOpacity="0.45" strokeWidth="14" fill="none" strokeLinecap="round" />
                 {/* Roads */}
-                <path d="M 40 60 L 380 80" stroke="#B594CC" strokeOpacity="0.25" strokeWidth="1.5" />
-                <path d="M 160 0 L 200 300" stroke="#B594CC" strokeOpacity="0.25" strokeWidth="1.5" />
-                <path d="M 80 40 L 320 280" stroke="#B594CC" strokeOpacity="0.18" strokeWidth="1" />
+                <path d="M 40 60 L 380 80" stroke="#8E9CCF" strokeOpacity="0.25" strokeWidth="1.5" />
+                <path d="M 160 0 L 200 300" stroke="#8E9CCF" strokeOpacity="0.25" strokeWidth="1.5" />
+                <path d="M 80 40 L 320 280" stroke="#8E9CCF" strokeOpacity="0.18" strokeWidth="1" />
                 {/* Label */}
-                <text x="20" y="30" fill="#6B2D8C" fontSize="12" fontWeight="600" opacity="0.7">DHAKA</text>
+                <text x="20" y="30" fill="#192B72" fontSize="12" fontWeight="600" opacity="0.7">DHAKA</text>
               </svg>
 
               {chambers.map((c) => (
@@ -77,7 +78,7 @@ export function ChamberMap() {
               <Reveal key={c.slug}>
                 <Link
                   to={`/chambers/${c.slug}`}
-                  className="card-base flex items-start gap-3 p-4"
+                  className="glass-card flex items-start gap-3 p-4"
                 >
                   <span
                     className={cn(

@@ -6,22 +6,25 @@ import { Container } from '../components/layout/Container';
 import { Reveal } from '../components/motion/Reveal';
 import { PlaceholderCard } from '../components/content/PlaceholderCard';
 import { Portrait } from '../components/content/Portrait';
-import { getChamber } from '../data/chambers';
+import { useResource, chamberStore } from '../lib/store';
 import { whatsappLink, type ChamberSlug } from '../lib/whatsapp';
 import { FinalCTA } from '../components/content/FinalCTA';
 
 export default function ChamberDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const chamber = slug ? getChamber(slug) : undefined;
+  const chambers = useResource(chamberStore);
+  const chamber = slug ? chambers.find((c) => c.slug === slug) : undefined;
   if (!chamber) return <Navigate to="/chambers" replace />;
 
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow={chamber.isPrimary ? 'PRIMARY CHAMBER' : 'CONSULTATION CHAMBER'}
         title={chamber.name}
         body={chamber.role}
         align="left"
+        crumbs={[{ label: 'Chambers', to: '/chambers' }, { label: chamber.shortName }]}
       />
 
       <Section tone="warm" spacing="xl">

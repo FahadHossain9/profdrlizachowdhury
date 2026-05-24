@@ -4,11 +4,13 @@ import { SectionHero } from '../components/content/SectionHero';
 import { Section } from '../components/layout/Section';
 import { Container } from '../components/layout/Container';
 import { Reveal } from '../components/motion/Reveal';
-import { chambers } from '../data/chambers';
+import { useResource, chamberStore, treatmentStore, appointmentStore } from '../lib/store';
 import { whatsappLink, hotline } from '../lib/whatsapp';
 import { cn } from '../lib/cn';
 
 export default function Contact() {
+  const chambers = useResource(chamberStore);
+  const treatments = useResource(treatmentStore);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -16,22 +18,34 @@ export default function Contact() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const payload = {
-      name: data.get('name'),
-      phone: data.get('phone'),
-      chamber: data.get('chamber'),
-      message: data.get('message'),
-    };
-    if (!payload.name || !payload.phone) {
+    const name = (data.get('name') as string | null)?.trim() ?? '';
+    const phone = (data.get('phone') as string | null)?.trim() ?? '';
+    const email = (data.get('email') as string | null)?.trim() || undefined;
+    const chamberSlug = (data.get('chamber') as string | null) ?? 'ufcl';
+    const treatmentInterest = (data.get('treatment') as string | null) || undefined;
+    const message = (data.get('message') as string | null)?.trim() || undefined;
+
+    if (!name || !phone) {
       setError("We'll need your name and phone to call you back.");
       return;
     }
     setError(null);
-    // Demo: no backend. Log only.
-    console.log('[demo enquiry]', payload);
+
+    appointmentStore.upsert({
+      id: `apt-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      name,
+      phone,
+      email,
+      chamberSlug,
+      treatmentInterest,
+      message,
+      status: 'new',
+      submittedAt: new Date().toISOString(),
+    });
+
     setSubmitted(true);
     form.reset();
-    setTimeout(() => setSubmitted(false), 4000);
+    setTimeout(() => setSubmitted(false), 5000);
   }
 
   return (
@@ -127,6 +141,22 @@ export default function Contact() {
                     />
                   </div>
                   <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-ink-body mb-1.5">
+                      Email <span className="text-ink-muted/70 font-normal">(optional)</span>
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      inputMode="email"
+                      placeholder="you@example.com"
+                      className="w-full rounded-lg border border-line bg-bg-warm px-4 py-2.5 text-sm focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-purple/20"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div>
                     <label htmlFor="chamber" className="block text-sm font-medium text-ink-body mb-1.5">
                       Preferred chamber
                     </label>
@@ -140,6 +170,24 @@ export default function Contact() {
                         <option key={c.slug} value={c.slug}>
                           {c.shortName}
                           {c.isPrimary ? ' (primary)' : ''}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="treatment" className="block text-sm font-medium text-ink-body mb-1.5">
+                      Interested in
+                    </label>
+                    <select
+                      id="treatment"
+                      name="treatment"
+                      defaultValue=""
+                      className="w-full rounded-lg border border-line bg-bg-warm px-4 py-2.5 text-sm focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-purple/20"
+                    >
+                      <option value="">Not sure yet</option>
+                      {treatments.map((t) => (
+                        <option key={t.slug} value={t.name}>
+                          {t.name}
                         </option>
                       ))}
                     </select>
@@ -175,7 +223,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-[11px] body-muted italic">
-                  Demo build: form submissions are logged to the console only. Production version will route to the practice's intake system.
+                  Your enquiry is sent directly to the practice intake. A coordinator will reach out by phone or WhatsApp within 4 working hours.
                 </p>
               </form>
             </Reveal>

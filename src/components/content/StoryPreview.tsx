@@ -4,15 +4,16 @@ import { Section } from '../layout/Section';
 import { Container } from '../layout/Container';
 import { Reveal, Stagger, StaggerItem } from '../motion/Reveal';
 import { useLanguage } from '../../hooks/useLanguage';
-import { stories } from '../../data/stories';
+import { useResource, storyStore } from '../../lib/store';
 import { cn } from '../../lib/cn';
 
 export function StoryPreview() {
   const { t, lang } = useLanguage();
+  const stories = useResource(storyStore);
   const featured = stories.slice(0, 2);
 
   return (
-    <Section tone="cream" spacing="xl">
+    <Section tone="aurora" spacing="xl">
       <Container>
         <Reveal>
           <div className="mb-10 flex flex-col items-start gap-3 md:flex-row md:items-end md:justify-between">
@@ -29,13 +30,14 @@ export function StoryPreview() {
         <Stagger className="grid grid-cols-1 gap-6 md:grid-cols-2" staggerChildren={0.08}>
           {featured.map((s) => (
             <StaggerItem key={s.slug}>
-              <Link to={`/stories/${s.slug}`} className="card-base flex h-full flex-col gap-5 p-7">
-                <p className="pullquote text-ink-body">
-                  &ldquo;{s.pullQuote}&rdquo;
+              <Link to={`/stories/${s.slug}`} className="glass-card flex h-full flex-col gap-5 p-7 md:p-8 relative overflow-hidden">
+                <span aria-hidden className="font-serif text-7xl leading-none text-brand-purple/15 absolute top-3 left-5 select-none">&ldquo;</span>
+                <p className="pullquote text-ink-body relative pt-3">
+                  {s.pullQuote}
                 </p>
                 <div className="mt-auto flex flex-wrap items-center justify-between gap-2 text-xs body-muted">
-                  <span>— {s.initials} · {s.treatment} · {s.year}</span>
-                  <span className="rounded-full bg-bg-cream px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-ink-muted">Demo</span>
+                  <span className="font-medium text-ink-body/80">— {s.initials} · {s.treatment} · {s.year}</span>
+                  <span className="glass-pill px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-ink-muted">Demo</span>
                 </div>
               </Link>
             </StaggerItem>

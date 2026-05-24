@@ -5,6 +5,7 @@ export const credentials = {
       'Chairman & Chief Consultant, Uttara Fertility Centre Limited',
       'Professor of Obstetrics & Gynaecology, Ibn Sina Medical College',
       'Consultant, Hitech Multicare Hospital',
+      'Cultural Secretary, Obstetrical & Gynaecological Society of Bangladesh (OGSB)',
     ],
     formerTitles: [
       'Major General, Bangladesh Army Medical Corps',

@@ -24,6 +24,9 @@ export const en = {
     subheadBn: 'স্বপ্নের সন্তানের সাথে হোক আজীবনের আনন্দ',
     ctaPrimary: 'Book a Consultation',
     ctaSecondary: "Watch Dr. Liza's introduction",
+    safety: 'Confidential consultation · Private examination rooms · Female-led team',
+    credentialChip: { years: '30+ years', label: 'Reproductive medicine', note: 'Trained in India & Germany' },
+    livePill: 'Now seeing patients in Uttara',
   },
   credibility: {
     caption: 'Trained in India & Germany. 30+ years in reproductive medicine.',

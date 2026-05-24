@@ -3,20 +3,23 @@ import { SectionHero } from '../components/content/SectionHero';
 import { Section } from '../components/layout/Section';
 import { Container } from '../components/layout/Container';
 import { Reveal } from '../components/motion/Reveal';
-import { stories } from '../data/stories';
+import { useResource, storyStore } from '../lib/store';
 import { FinalCTA } from '../components/content/FinalCTA';
 
 export default function StoryDetail() {
   const { slug } = useParams<{ slug: string }>();
+  const stories = useResource(storyStore);
   const story = stories.find((s) => s.slug === slug);
   if (!story) return <Navigate to="/stories" replace />;
 
   return (
     <>
       <SectionHero
+        tone="gradient"
         eyebrow={`${story.treatment.toUpperCase()} · ${story.year}`}
         title={story.headline}
         align="left"
+        crumbs={[{ label: 'Stories', to: '/stories' }, { label: story.initials }]}
       />
       <Section tone="warm" spacing="xl">
         <Container>
