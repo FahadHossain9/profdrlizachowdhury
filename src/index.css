@@ -185,8 +185,8 @@
      visible "moving border" effect on all four sides. */
   .gradient-border-moving {
     position: relative;
-    padding: 4px;
-    border-radius: 1.25rem;
+    padding: 2.5px;
+    border-radius: 1.15rem;
     background-image: linear-gradient(
       90deg,
       #192B72 0%,
